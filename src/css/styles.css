@@ -65,9 +65,9 @@ p {
   transform: translateZ(1px);
 }
 .loader:after {
-  position: absolute;
-  top: 20%;
- left: 50%;
+  
+ margin-left: 50%;
+ margin-right: 50%;
   content: '$';
   display: inline-block;
   width: 48px;
