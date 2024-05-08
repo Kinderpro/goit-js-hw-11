@@ -16,9 +16,9 @@ function onSearchImg(evt) {
   evt.preventDefault();
   const nameSearch = evt.target[0].value;
   refs.loader.classList.remove('loader-none');
+  refs.gallery.innerHTML = '';
   searchServiceImg(nameSearch)
     .then(data => {
-     
       if (creatMarkup(data.hits) == []) {
         iziToast.error({
           title: 'Error',
@@ -29,7 +29,7 @@ function onSearchImg(evt) {
       } else {
         refs.loader.classList.add('loader-none');
         refs.gallery.innerHTML = creatMarkup(data.hits);
-        lightbox.refresh()
+        lightbox.refresh();
       }
     })
     .catch(er => {
