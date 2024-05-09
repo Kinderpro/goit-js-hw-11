@@ -20,12 +20,14 @@ function onSearchImg(evt) {
   searchServiceImg(nameSearch)
     .then(data => {
       if (creatMarkup(data.hits) == []) {
+        refs.loader.classList.add('loader-none');
         iziToast.error({
           title: 'Error',
           message:
             'Sorry, there are no images matching your search query. Please try again!',
           position: 'topCenter',
         });
+
       } else {
         refs.loader.classList.add('loader-none');
         refs.gallery.innerHTML = creatMarkup(data.hits);
